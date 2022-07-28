@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Routes, Route, BrowserRouter, Link, Outlet } from "react-router-dom";
 
 import LocationCreator from "./components/LocationCreator.jsx";
+import LocationDisplay from "./components/LocationDisplay.jsx";
 
 import "./stylesheets/styles.css";
 // import app from "../server/server.js";
@@ -28,7 +29,7 @@ class App extends Component {
       <div className="router">
         <main>
           <LocationCreator />
-          {/* <LocationDisplay /> */}
+          <LocationDisplay />
         </main>
       </div>
     );

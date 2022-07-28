@@ -8,7 +8,7 @@ locationController.getPlaces = async (req, res, next) => {
   try {
     const allPlaces = await models.Location.find({});
     console.log('this is the allPlace', allPlaces);
-    res.locals.characters = allPlaces;
+    res.locals.listOfLocs = allPlaces;
     return next();
   } catch (err) {
     return next({

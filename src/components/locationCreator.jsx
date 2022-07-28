@@ -2,6 +2,7 @@ import forbidPropTypes from "eslint-plugin-react/lib/rules/forbid-prop-types";
 import { isTSParenthesizedType } from "eslint-plugin-react/lib/util/ast";
 import React, { Component } from "react";
 // import { Link, withRouter } from "react-router-dom";
+import Location from "./Location.jsx";
 
 class LocationCreator extends Component {
   // const useInput = (initialValue) => {
@@ -31,11 +32,11 @@ class LocationCreator extends Component {
       headers: {
         "Content-Type": "Application/JSON",
       },
-      body: JSON.stringify({...this.state}),
+      body: JSON.stringify({ ...this.state }),
     })
       .then((resp) => resp.json())
       .then((data) => {
-        return this.setState({...data });
+        return this.setState({ ...data });
       })
       .catch((err) =>
         console.log("LocationCreator fetch /api/itinerary: ERROR: ", err)

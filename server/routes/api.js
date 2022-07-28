@@ -8,7 +8,7 @@ const router = express.Router();
 // endpoint will be / and go to app which will go to
 
 router.get("/", locationController.getPlaces, (req, res) =>
-  res.status(200).json(res.locals.chars)
+  res.status(200).json(res.locals.listOfLocs)
 );
 
 // need a post request to add location to the screen

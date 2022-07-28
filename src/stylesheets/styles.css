@@ -32,3 +32,15 @@
 .main {
   margin-bottom: 5rem;
 }
+
+.loc {
+  display: "flex";
+  flexdirection: "row";
+  justifycontent: "center";
+}
+
+.locationBox {
+  display: "flex";
+  flexdirection: "row";
+  justifycontent: "center";
+}
