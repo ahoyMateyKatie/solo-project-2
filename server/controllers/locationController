@@ -1,33 +1,44 @@
-const models = require('../models/locationModels');
+const models = require("../models/locationModels");
 
 const locationController = {};
 
 // need locationController getPlaces
 
 locationController.getPlaces = async (req, res, next) => {
-  try{
+  try {
     const allPlaces = await models.Location.find({});
+    console.log('this is the allPlace', allPlaces);
     res.locals.characters = allPlaces;
     return next();
-  } catch (err){
-    return ({
+  } catch (err) {
+    return next({
       log: `locationController.getPlaces: ERROR: ${err}`,
-      message: { err: 'Error occurred in locationContoller.getPlaces.'}
-    })
+      message: { err: "Error occurred in locationContoller.getPlaces." },
+    });
   }
-}
+};
 
 // need locationController addPlace
 
 locationController.addPlace = async (req, res, next) => {
   try {
     const { location, description, restaurant, date } = req.body;
-
-    const placeMaker = await models.Location.create( { location, description, restaurant, date } );
-
+    console.log("this is the req.body", req.body);
+    const placeMaker = await models.Location.create({
+      location,
+      description,
+      restaurant,
+      date,
+    });
+    console.log("this is the placeMaker", placeMaker);
     res.locals.addLoc = placeMaker;
     return next();
   } catch (err) {
-    return next(err);
+    return next({
+      log: `locationController.getPlaces: ERROR: ${err}`,
+      message: { err: "Error occurred in locationContoller.getPlaces." },
+    });
   }
-}
+};
+
+module.exports = locationController;

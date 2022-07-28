@@ -13,7 +13,7 @@ const url =
 mongoose
   .connect(url)
   .then((result) => {
-    console.log("connected");
+    console.log("MongoDB is connected");
   })
 //     const note = new Note({
 //       content: "HTML is Easy",

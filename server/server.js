@@ -8,12 +8,11 @@ const apiRouter = require('./routes/api');
 
 const PORT = 3000;
 
-
-app.use(express.json()):
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //need to serve static files
-app.use(express.static(path.resolve(__dirname, '../src')));
+app.use(express.static(path.join(__dirname, '../src')));
 
 //route handler
 app.use('/api', apiRouter);
@@ -35,4 +34,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`)
 });
 
-module.exports = app;
+// module.exports = app;
